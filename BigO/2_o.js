@@ -8,7 +8,7 @@ function logItems(n) {
         //worst case take O(n)
     }
 
-    for (let j = 0; j < n; i++) {
+    for (let j = 0; j < n; j++) {
         console.log(j);
         //worst case  O(n)
     }
