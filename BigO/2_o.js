@@ -5,7 +5,16 @@
 function logItems(n) {
     for (let i = 0; i < n; i++) {
         console.log(i);
+        //worst case take O(n)
     }
+
+    for (let j = 0; j < n; i++) {
+        console.log(j);
+        //worst case  O(n)
+    }
+
+    // total case to resolve whole progam is O(n) + O(n) = O(2n)
+    //here constant 2 can be dropped to simplify and written as O(n)
 }
 
 logItems(9);
