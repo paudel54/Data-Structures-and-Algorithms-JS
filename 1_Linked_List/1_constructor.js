@@ -116,6 +116,16 @@ class linkedList {
         return temp;
     }
 
+    set(index, value) {
+        //reusing the get method 
+        let temp = this.get(index)
+        if (temp) {
+            temp.value = value;
+            return true
+        }
+        return false
+    }
+
 
 }
 
@@ -125,9 +135,11 @@ let myLinkedList = new linkedList(7)
 myLinkedList.Push(4);
 myLinkedList.Push(8);
 myLinkedList.Pop();
-myLinkedList.Unshift(10);
-myLinkedList.shift();
+// myLinkedList.Unshift(10);
+// myLinkedList.shift();
 console.log('hello');
 console.log(myLinkedList.get(1));
 
+console.log(myLinkedList);
+myLinkedList.set(0, 10);
 console.log(myLinkedList);
