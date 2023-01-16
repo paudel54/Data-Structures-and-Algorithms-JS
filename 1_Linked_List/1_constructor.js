@@ -145,6 +145,28 @@ class linkedList {
         return true
     }
 
+    remove(index) {
+        //if the item was at beginnig of node to be removed, we apply shift() method , work done
+        if (index === 0) return this.shift()
+        //if last node were to removed
+        if (index === this.length - 1) return this.Pop()
+        //if the request were made to remove any node that are out of index return undefined
+        if (index < 0 || index >= this.length) return undefined
+
+        //adding into the middle node
+        const before = this.get(index - 1)
+        const temp = before.next
+
+        //node pointer will skip mid node and point one step ahead
+        before.next = temp.next
+        temp.next = null
+        this.length--
+        return temp
+
+    }
+
+
+
 
 }
 
@@ -155,7 +177,7 @@ myLinkedList.Push(4);
 myLinkedList.Push(8);
 myLinkedList.Pop();
 // myLinkedList.Unshift(10);
-// myLinkedList.shift();
+// myLinkedList.shift(); 
 console.log('hello');
 console.log(myLinkedList.get(1));
 
