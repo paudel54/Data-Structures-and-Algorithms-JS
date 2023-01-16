@@ -66,7 +66,24 @@ class linkedList {
         }
         //take it out of list
         return temp
+    }
 
+    //addiong new node at the beginnnig of the list
+    Unshift(value) {
+        //creating new node to be added
+        const newNode = new Node(value)
+        //if list is empty or have no single node
+        if (!this.head) {
+            //head var is pointed to newNode, for single node
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            //newNodes points out or creates a link with the , current 1st element of the list
+            newNode.next = this.head
+            this.head = newNode
+        }
+        this.length++
+        return this
     }
 
 }
@@ -77,7 +94,6 @@ let myLinkedList = new linkedList(7)
 myLinkedList.Push(4);
 myLinkedList.Push(8);
 myLinkedList.Pop();
-myLinkedList.Pop();
-myLinkedList.Pop();
+myLinkedList.Unshift(10);
 
 console.log(myLinkedList);
