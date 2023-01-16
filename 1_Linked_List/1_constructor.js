@@ -86,6 +86,23 @@ class linkedList {
         return this
     }
 
+    shift() {
+        // case I if the node is empty
+        if (!this.head) return undefined
+        //intorduce temp var to break the chian of list
+        let temp = this.head
+        //changing head pointer to next node to break prev
+        this.head = this.head.next
+        //breaking up the pointer link
+        temp.next = null
+        this.length--
+        //case III if node is of single element
+        if (this.length === 0) {
+            this.tail == null
+        }
+        return temp
+    }
+
 }
 
 
@@ -95,5 +112,6 @@ myLinkedList.Push(4);
 myLinkedList.Push(8);
 myLinkedList.Pop();
 myLinkedList.Unshift(10);
+myLinkedList.shift();
 
 console.log(myLinkedList);
