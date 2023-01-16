@@ -103,6 +103,20 @@ class linkedList {
         return temp
     }
 
+    get(index) {
+        //we want to prevent that list index not be -ve and overflow the list index 
+        if (index < 0 || index >= this.length) {
+            return undefined
+        }
+        //we want to shift the temp var and point to the element that we want to get
+        let temp = this.head
+        for (let i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+
 }
 
 
@@ -113,5 +127,7 @@ myLinkedList.Push(8);
 myLinkedList.Pop();
 myLinkedList.Unshift(10);
 myLinkedList.shift();
+console.log('hello');
+console.log(myLinkedList.get(1));
 
 console.log(myLinkedList);
