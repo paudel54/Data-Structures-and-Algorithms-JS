@@ -126,6 +126,25 @@ class linkedList {
         return false
     }
 
+    insert(index, value) {
+        //checking the index of list -ve index and after index
+        if (index < 0 || index > this.length) return false
+        //incase if the node was to be inserted into the last tail section of list we can use the push method that's already been defined
+        if (index === this.length) return this.Push(value)
+        //if we want to insert into the beginning we use already defined method unshift here.
+        if (index === 0) return this.unshift(value)
+
+        //if the node were to be added in to mid section onto the linked list
+        //step-1: Create a new node
+        const newNode = new Node(value)
+        //taking action with temp var to point into new node and new node to the existed node
+        const temp = this.get(index - 1)
+        newNode.next = temp.next
+        temp.next = newNode
+        this.length++
+        return true
+    }
+
 
 }
 
@@ -142,4 +161,6 @@ console.log(myLinkedList.get(1));
 
 console.log(myLinkedList);
 myLinkedList.set(0, 10);
+//inserting number 12 in the index 1 of link list
+myLinkedList.insert(1, 12)
 console.log(myLinkedList);
