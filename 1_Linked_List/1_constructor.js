@@ -165,6 +165,25 @@ class linkedList {
 
     }
 
+    reverse() {
+        //initially we must switch head and tail, ny the use of temp var
+        let temp = this.head
+        this.head = this.tail
+        this.tail = temp;
+
+        //creating next and prev var to change pointer direction .\
+        //for 1st Node
+        let next = temp.next
+        let prev = null
+
+        for (let i = 0; i < this.length; i++) {
+            next = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next
+        }
+        return this
+    }
 
 
 
