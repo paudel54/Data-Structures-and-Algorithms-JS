@@ -44,10 +44,33 @@ class DoublyLinkedList {
         this.length++
         return this
     }
+
+
+    pop() {
+        // for an empty node
+        if (this.length === 0) return undefined;
+        let temp = this.tail;
+        // if there contains single node then pop it or assign it null
+        if (this.length === 1) {
+            this.head == null;
+            this.tail == null;
+        } else {
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+            temp.prev = null;
+        }
+        this.length--;
+        return temp;
+    }
+
 }
+
 
 
 let myDoublyLinkedList = new DoublyLinkedList(1);
 console.log('inital link list before pushing', myDoublyLinkedList);
 myDoublyLinkedList.push(2);
+myDoublyLinkedList.push(8);
 console.log(myDoublyLinkedList);
+myDoublyLinkedList.pop();
+console.log('After poping out value', myDoublyLinkedList);
