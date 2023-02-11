@@ -63,6 +63,23 @@ class DoublyLinkedList {
         return temp;
     }
 
+    unshift(value) {
+        // Creating new node
+        const newNode = new Node(value);
+        // if the list is empty
+        if (this.length === 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+        this.length++
+        return this;
+
+    }
+
 }
 
 
@@ -70,7 +87,8 @@ class DoublyLinkedList {
 let myDoublyLinkedList = new DoublyLinkedList(1);
 console.log('inital link list before pushing', myDoublyLinkedList);
 myDoublyLinkedList.push(2);
-myDoublyLinkedList.push(8);
 console.log(myDoublyLinkedList);
-myDoublyLinkedList.pop();
-console.log('After poping out value', myDoublyLinkedList);
+// myDoublyLinkedList.pop();
+// console.log('After poping out value', myDoublyLinkedList);
+myDoublyLinkedList.unshift(7);
+console.log('Adding node 7 in first place', myDoublyLinkedList);
