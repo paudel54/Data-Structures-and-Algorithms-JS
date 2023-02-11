@@ -114,13 +114,23 @@ class DoublyLinkedList {
         }
         return temp;
     }
+    // setting particulr node value
+    set(index, value) {
+        let temp = this.get(index);
+        if (temp) {
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
 }
 
 
 
+
 let myDoublyLinkedList = new DoublyLinkedList(0);
-console.log('inital link list before pushing', myDoublyLinkedList);
+// console.log('inital link list before pushing', myDoublyLinkedList);
 myDoublyLinkedList.push(1);
 myDoublyLinkedList.push(2);
 myDoublyLinkedList.push(3);
-console.log(myDoublyLinkedList);
+// console.log(myDoublyLinkedList);
