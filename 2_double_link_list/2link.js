@@ -1,4 +1,4 @@
-console.log('Welcome to Doubly linked List');
+// console.log('Welcome to Doubly linked List');
 // Node that creates empty single doubly link list
 class Node {
     constructor(value) {
@@ -8,7 +8,6 @@ class Node {
     }
 
 }
-
 
 class DoublyLinkedList {
     constructor(value) {
@@ -92,18 +91,37 @@ class DoublyLinkedList {
             temp.next = null;
         }
         this.length--
-        return temp
+        return temp;
     }
-
+    // to get value from a particular index
+    get(index) {
+        // creating limit for -ve index and out of range index. 
+        if (index < 0 || index >= this.length) {
+            return undefined;
+        }
+        let temp = this.head;
+        // for loop for only 1st half of loop for, efficiency last half we iterate from tail 
+        if (index < this.length / 2) {
+            for (let i = 0; i < index; i++) {
+                temp = temp.next;
+            }
+        } else {
+            // interating or searching from tail node for last half node this increases performance and optimized time complexity
+            temp = this.tail;
+            for (let i = this.length - 1; i > index; i--) {
+                temp = temp.prev;
+            }
+        }
+        return temp;
+    }
 }
 
 
 
-let myDoublyLinkedList = new DoublyLinkedList(1);
+let myDoublyLinkedList = new DoublyLinkedList(0);
 console.log('inital link list before pushing', myDoublyLinkedList);
+myDoublyLinkedList.push(1);
 myDoublyLinkedList.push(2);
+myDoublyLinkedList.push(3);
 console.log(myDoublyLinkedList);
-// myDoublyLinkedList.pop();
-// console.log('After poping out value', myDoublyLinkedList);
-myDoublyLinkedList.unshift(7);
-console.log('Adding node 7 in first place', myDoublyLinkedList);
+console.log('get node 1, containg 2', myDoublyLinkedList.get(1));
