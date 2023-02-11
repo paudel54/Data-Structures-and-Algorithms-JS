@@ -123,13 +123,14 @@ class DoublyLinkedList {
         }
         return false;
     }
-
+    // inserting particlur node value
     insert(index, value) {
         if (index === 0) return this.unshift(value);
         if (index === this.length) return this.push(value);
         if (index < 0 || index > this.length) return false;
 
         const newNode = new Node(value);
+        // getting the already created get method
         const before = this.get(index - 1);
         const after = before.next;
         before.next = newNode;
@@ -138,6 +139,23 @@ class DoublyLinkedList {
         after.prev = newNode;
         this.length++
         return true
+    }
+    // removing linked list
+    remove(index) {
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+        if (index < 0 || index >= this.length) return undefined;
+
+        const temp = this.get(index);
+
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+        temp.next = null;
+        temp.prev = null;
+
+        this.length--;
+        return temp;
+
     }
 
 }
