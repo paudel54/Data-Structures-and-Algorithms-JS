@@ -124,4 +124,3 @@ myDoublyLinkedList.push(1);
 myDoublyLinkedList.push(2);
 myDoublyLinkedList.push(3);
 console.log(myDoublyLinkedList);
-console.log('get node 1, containg 2', myDoublyLinkedList.get(1));
