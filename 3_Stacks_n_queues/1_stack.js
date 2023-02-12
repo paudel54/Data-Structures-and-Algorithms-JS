@@ -29,6 +29,17 @@ class Stack {
         this.length++;
         return this;
     }
+    // Pop element form list
+    pop() {
+        //  check the empty stack 
+        if (this.length === 0) return undefined;
+
+        let temp = this.top;
+        this.top = this.top.next;
+        temp.next = null;
+        this.length--
+        return temp
+    }
 }
 
 let myStack = new Stack(7);
