@@ -42,6 +42,23 @@ class BST {
             }
         }
     }
+
+    contains(value) {
+        if (this.root === null) return false;
+        let temp = this.root;
+        while (temp) {
+            if (value < temp.value) {
+                temp = temp.left
+            } else if (value > temp.value) {
+                temp = temp.right;
+            } else {
+                // if searching node and containing node value true return true 
+                return true;
+            }
+        }
+        // if temp goes down steps and every ending node has next of null on such case return false
+        return false;
+    }
 }
 
 
