@@ -18,7 +18,21 @@ class HashTable {
         }
         return hash;
     }
+
+    set(key, value) {
+        let index = this._hash(key)
+        if (!this.dataMap[index]) {
+            this.dataMap[index] = []
+        }
+        this.dataMap[index].push([key, value])
+        return this
+    }
 }
 // hash table creation 
 let myHashTable = new HashTable();
-console.log(myHashTable)
+myHashTable.set('lumber', 13);
+myHashTable.set('plumber', 150);
+myHashTable.set('wood', 98);
+myHashTable.set('Shoes', 120);
+
+// console.log(myHashTable)
