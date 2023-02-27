@@ -27,6 +27,19 @@ class HashTable {
         this.dataMap[index].push([key, value])
         return this
     }
+
+    // idea is run hash fn and get id of arrry to get value;
+    get(key) {
+        let index = this._hash(key)
+        if (this.dataMap[index]) {
+            for (let i = 0; i < this.dataMap[index].length; i++) {
+                if (this.dataMap[index][i][0] === key) {
+                    return this.dataMap[index][i][1]
+                }
+            }
+        }
+        return undefined
+    }
 }
 // hash table creation 
 let myHashTable = new HashTable();
@@ -34,5 +47,4 @@ myHashTable.set('lumber', 13);
 myHashTable.set('plumber', 150);
 myHashTable.set('wood', 98);
 myHashTable.set('Shoes', 120);
-
 // console.log(myHashTable)
