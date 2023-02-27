@@ -1,4 +1,4 @@
-console.log('Hello Hash Tables');
+// console.log('Hello Hash Tables');
 
 // Creating a hash table constructor:
 
@@ -40,6 +40,18 @@ class HashTable {
         }
         return undefined
     }
+    keys() {
+        let allKeys = []
+        for (let i = 0; i < this.dataMap.length; i++) {
+            // execute if if the array particular index is not empty
+            if (this.dataMap[i]) {
+                for (let j = 0; j < this.dataMap[i].length; j++) {
+                    allKeys.push(this.dataMap[i][j][0])
+                }
+            }
+        }
+        return allKeys
+    }
 }
 // hash table creation 
 let myHashTable = new HashTable();
@@ -47,4 +59,6 @@ myHashTable.set('lumber', 13);
 myHashTable.set('plumber', 150);
 myHashTable.set('wood', 98);
 myHashTable.set('Shoes', 120);
+myHashTable.get('wood');
 // console.log(myHashTable)
+// console.log(myHashTable.keys())
