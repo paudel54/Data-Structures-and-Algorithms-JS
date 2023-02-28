@@ -39,6 +39,16 @@ class Graph {
         }
         return false
     }
+
+    removeVertex(vertex) {
+        if (!this.adjacencyList[vertex]) return undefined;
+        while (this.adjacencyList[vertex].length) {
+            let temp = this.adjacencyList[vertex].pop()
+            this.removeEdge(vertex, temp)
+        }
+        delete this.adjacencyList[vertex];
+        return this
+    }
 }
 
 let myGraph = new Graph();
@@ -50,6 +60,9 @@ myGraph.addVertex('C');
 myGraph.addEdge("A", "B");
 myGraph.addEdge("B", "C")
 myGraph.addEdge("C", "A")
+// on removing the node or vetex it also removes the edges:
+// myGraph.removeVertex("C");
 
+// uncomment to check out the function  b
 // myGraph.removeEdge("A", "B")
 console.log(myGraph)
